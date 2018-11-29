@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "549219337713",
+    "firebase_url": "https://ipas-efa10.firebaseio.com",
+    "project_id": "ipas-efa10",
+    "storage_bucket": "ipas-efa10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549219337713:android:298ce664755b6cae",
+        "android_client_info": {
+          "package_name": "com.james.ipas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549219337713-qukqo4d5svdl2v6mmfh1bl577q13mkta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.james.ipas",
+            "certificate_hash": "40b3381897eb81ced3ba6963b3d1b00688a6df55"
+          }
+        },
+        {
+          "client_id": "549219337713-nc3hl8ukugpri3stnlbr70h1eeu06fnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq6KSn6OFhUUGNzC15x31-Aksk0ivO2vU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549219337713-nc3hl8ukugpri3stnlbr70h1eeu06fnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
