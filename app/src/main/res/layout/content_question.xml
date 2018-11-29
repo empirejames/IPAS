@@ -29,15 +29,15 @@
 
     <TextView
         android:id="@+id/tv_content"
-        android:layout_width="319dp"
-        android:layout_height="218dp"
+        android:layout_width="296dp"
+        android:layout_height="214dp"
+        android:scrollbars="vertical"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Content"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/rgroup_answer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,4 +96,17 @@
             android:text="D"
             android:textSize="20dp" />
     </RadioGroup>
+
+    <include
+        android:id="@+id/footerSetting"
+        layout="@layout/bottom_buttons"
+        android:layout_width="382dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

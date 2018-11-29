@@ -1,9 +1,13 @@
 package com.james.ipas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,6 +30,11 @@ public class QuestionActivity extends Activity {
     TextView tv_selector, tv_content;
     RadioGroup radioGroup;
     RadioButton radioButton_A, radioButton_B, radioButton_C, radioButton_D;
+    Button btn_next, btn_pre;
+    int page = 0;
+    int getAnswer;
+    int answer = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstancesState) {
@@ -41,6 +50,68 @@ public class QuestionActivity extends Activity {
 
         randItem = genRandNum(max_number, numberOfSelect);
         new GetData().execute(randItem);
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (page < numberOfSelect - 1) {
+                    if(getAnswer != answer){
+                        Log.e(TAG, "page : " + page);
+                    }else{
+                        page++;
+                        updateView(page);
+                    }
+                } else {
+                    gotoHomePage();
+                }
+            }
+        });
+
+        btn_pre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (page < numberOfSelect && page >= 0) {
+                    page--;
+                    updateView(page);
+                } else {
+                    page = 0;
+                    gotoHomePage();
+                }
+            }
+        });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                View radioButton = radioGroup.findViewById(checkedId);
+                getAnswer = radioGroup.indexOfChild(radioButton);
+                Log.e(TAG, "Checked : " + getAnswer);
+            }
+        });
+    }
+
+
+    public int updateView(int page) {
+        radioGroup.clearCheck();
+        if (testLists.size() != 0 && page >= 0) {
+            tv_selector.setText(page + 1 + " .");
+            tv_content.setText(testLists.get(page).getTopic());
+            tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
+            radioButton_A.setText(testLists.get(page).getItem_A());
+            radioButton_B.setText(testLists.get(page).getItem_B());
+            radioButton_C.setText(testLists.get(page).getItem_C());
+            radioButton_D.setText(testLists.get(page).getItem_D());
+
+            if (testLists.get(page).getAnswer().contains("A")) {
+                answer = 0;
+            } else if (testLists.get(page).getAnswer().contains("B")) {
+                answer = 1;
+            } else if (testLists.get(page).getAnswer().contains("C")) {
+                answer = 2;
+            } else if (testLists.get(page).getAnswer().contains("D")) {
+                answer = 3;
+            }
+        }
+        return answer;
     }
 
     public void initView() {
@@ -51,7 +122,13 @@ public class QuestionActivity extends Activity {
         radioButton_B = findViewById(R.id.answer_b);
         radioButton_C = findViewById(R.id.answer_c);
         radioButton_D = findViewById(R.id.answer_d);
+        btn_next = findViewById(R.id.btnRight);
+        btn_pre = findViewById(R.id.btnLeft);
+    }
 
+    public void gotoHomePage(){
+        Intent i = new Intent(QuestionActivity.this, MainActivity.class);
+        startActivity(i);
     }
 
 
@@ -96,15 +173,7 @@ public class QuestionActivity extends Activity {
                             //Log.e(TAG, "testList Size : " + testLists.size());
                         }
                     }
-                    tv_selector.setText("1");
-                    tv_content.setText(testLists.get(0).getTopic());
-                    Log.e(TAG, "testLists.get(0) : " + testLists.get(0).getAnswer());
-                    Log.e(TAG, "testLists.get(0) : " + testLists.get(0).getItem_A());
-
-                    radioButton_A.setText(testLists.get(0).getItem_A());
-                    radioButton_B.setText(testLists.get(0).getItem_B());
-                    radioButton_C.setText(testLists.get(0).getItem_C());
-                    radioButton_D.setText(testLists.get(0).getItem_D());
+                    updateView(page);
                 }
 
                 @Override
