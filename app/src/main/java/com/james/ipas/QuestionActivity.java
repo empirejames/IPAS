@@ -130,13 +130,18 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
         resetBtnBackground();
 
         if (testLists.size() != 0 && page >= 0) {
+            Log.e(TAG,"testLists size" + "  :  " +testLists.size() + " Page  :" + page);
             tv_selector.setText(page + 1 + " .");
             tv_content.setText(testLists.get(page).getTopic());
             tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
-            btn_A.setText(testLists.get(page).getItem_A());
-            btn_B.setText(testLists.get(page).getItem_B());
-            btn_C.setText(testLists.get(page).getItem_C());
-            btn_D.setText(testLists.get(page).getItem_D());
+            btn_A.setText(testLists.get(page).getA());
+            btn_B.setText(testLists.get(page).getB());
+            btn_C.setText(testLists.get(page).getC());
+            btn_D.setText(testLists.get(page).getD());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getTopic());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getAnswer());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getA());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getB());
 
 
             if (testLists.get(page).getAnswer().contains("A")) {
@@ -237,7 +242,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
                         for (int i = 0; i < randResult.length; i++) {
                             TestItem items = ds.child(randResult[i] + "").getValue(TestItem.class);
                             testLists.add(items);
-                            //Log.e(TAG, "testList Size : " + testLists.size());
+                            Log.e(TAG, "testList Size : " + testLists.size());
                         }
                     }
                     updateView(page);
