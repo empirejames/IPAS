@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,15 +24,26 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 
-
+    TextView next_grade, grade;
     Button btn_enter;
     Spinner spinner, spiner_subject;
+    String getResult;
 
     @Override
-    protected  void onCreate(Bundle savedInstancesState){
+    protected void onCreate(Bundle savedInstancesState) {
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_main);
         initView();
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            getResult = b.getString("result");
+            Log.e("TTTTTT", getResult + "");
+            next_grade.setVisibility(View.VISIBLE);
+            grade.setVisibility(View.VISIBLE);
+            grade.setText(getResult);
+        }
+
+
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +51,7 @@ public class MainActivity extends Activity {
                 String txt_subject = spiner_subject.getSelectedItem().toString();
                 Intent i = new Intent(MainActivity.this, QuestionActivity.class);
                 Bundle b = new Bundle();
-                b.putString("subject" , txt_subject);
+                b.putString("subject", txt_subject);
                 b.putString("question", txt_question);
                 i.putExtras(b);
                 startActivity(i);
@@ -51,12 +63,14 @@ public class MainActivity extends Activity {
 
     }
 
-    public void initView(){
-        final String[]  questions =  {"10", "20", "30", "40", "50"};
-        final String[]  subject =  {"行動裝置概論"};
+    public void initView() {
+        final String[] questions = {"10", "20", "30", "40", "50"};
+        final String[] subject = {"行動裝置概論"};
+        next_grade = findViewById(R.id.next_grade);
+        grade = findViewById(R.id.grade);
         btn_enter = findViewById(R.id.btn_enter);
-        spinner = (Spinner)findViewById(R.id.spinner);
-        spiner_subject = (Spinner)findViewById(R.id.spinner_subject);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spiner_subject = (Spinner) findViewById(R.id.spinner_subject);
         ArrayAdapter<String> subject_List = new ArrayAdapter<>(MainActivity.this,
                 android.R.layout.simple_spinner_dropdown_item, subject);
         ArrayAdapter<String> quesion_List = new ArrayAdapter<>(MainActivity.this,

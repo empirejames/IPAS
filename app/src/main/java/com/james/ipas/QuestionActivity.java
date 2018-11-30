@@ -34,6 +34,8 @@ public class QuestionActivity extends Activity {
     int page = 0;
     int getAnswer;
     int answer = 0;
+    int countCorrect = 0;
+    boolean showFlag;
 
 
     @Override
@@ -54,9 +56,16 @@ public class QuestionActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (page < numberOfSelect - 1) {
-                    if(getAnswer != answer){
+                    if (getAnswer != answer) {
                         Log.e(TAG, "page : " + page);
-                    }else{
+
+                        Log.e(TAG, "showAnswer : " + showFlag);
+                        showFlag = showAnswer(answer);
+                        if (showFlag) {
+                            page++;
+                            updateView(page);
+                        }
+                    } else {
                         page++;
                         updateView(page);
                     }
@@ -89,9 +98,26 @@ public class QuestionActivity extends Activity {
         });
     }
 
+    public boolean showAnswer(int answer) {
+        countCorrect ++;
+        if (answer == 0) {
+            radioButton_A.setTextColor(getResources().getColor(R.color.red));
+        } else if (answer == 1) {
+            radioButton_B.setTextColor(getResources().getColor(R.color.red));
+        } else if (answer == 2) {
+            radioButton_C.setTextColor(getResources().getColor(R.color.red));
+        } else {
+            radioButton_D.setTextColor(getResources().getColor(R.color.red));
+        }
+        return false;
+    }
 
     public int updateView(int page) {
         radioGroup.clearCheck();
+        radioButton_A.setTextColor(getResources().getColor(R.color.black));
+        radioButton_B.setTextColor(getResources().getColor(R.color.black));
+        radioButton_C.setTextColor(getResources().getColor(R.color.black));
+        radioButton_D.setTextColor(getResources().getColor(R.color.black));
         if (testLists.size() != 0 && page >= 0) {
             tv_selector.setText(page + 1 + " .");
             tv_content.setText(testLists.get(page).getTopic());
@@ -126,8 +152,14 @@ public class QuestionActivity extends Activity {
         btn_pre = findViewById(R.id.btnLeft);
     }
 
-    public void gotoHomePage(){
+    public void gotoHomePage() {
+
+        Bundle b = new Bundle();
+        int result = numberOfSelect - countCorrect;
+        b.putString("result" , result + " / " + numberOfSelect);
+        Log.e(TAG, " Go Home Page : " + result);
         Intent i = new Intent(QuestionActivity.this, MainActivity.class);
+        i.putExtras(b);
         startActivity(i);
     }
 
