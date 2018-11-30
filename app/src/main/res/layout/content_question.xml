@@ -30,82 +30,98 @@
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="296dp"
-        android:layout_height="214dp"
-        android:scrollbars="vertical"
+        android:layout_height="169dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/rgroup_answer"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tv_selector"
-        app:layout_constraintTop_toTopOf="@+id/tv_selector"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintTop_toTopOf="@+id/tv_selector" />
 
-    <RadioGroup
-        android:id="@+id/rgroup_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
+        android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.782">
+        app:layout_constraintVertical_bias="0.789">
 
-        <RadioButton
-            android:id="@+id/answer_a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="A"
-            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btn_A"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            android:text="" />
 
-        <RadioButton
-            android:id="@+id/answer_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="B"
-            android:textSize="20dp" />
+        <View
+            android:layout_height="1dp"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"/>
+        <Button
+            android:id="@+id/btn_B"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            android:text="" />
 
-        <RadioButton
-            android:id="@+id/answer_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="C"
-            android:textSize="20dp" />
+        <View
+            android:layout_height="1dp"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"/>
+        <Button
+            android:id="@+id/btn_C"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            android:text="" />
 
-        <RadioButton
-            android:id="@+id/answer_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="D"
-            android:textSize="20dp" />
-    </RadioGroup>
+        <View
+            android:layout_height="1dp"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"/>
+        <Button
+            android:id="@+id/btn_D"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            android:text="" />
+    </LinearLayout>
 
     <include
         android:id="@+id/footerSetting"
         layout="@layout/bottom_buttons"
-        android:layout_width="382dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
