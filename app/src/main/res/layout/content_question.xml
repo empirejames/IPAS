@@ -6,44 +6,92 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".QuestionActivity"
+    android:background="@color/background"
     tools:showIn="@layout/activity_question">
 
-    <TextView
-        android:id="@+id/tv_selector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="1. "
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
-
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="296dp"
-        android:layout_height="169dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="vertical"
-        android:textSize="25dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_selector"
-        app:layout_constraintTop_toTopOf="@+id/tv_selector" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_help_white_48dp" />
+
+                <TextView
+                    android:id="@+id/txt_getCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30dp" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_access_time_white_48dp" />
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rule_backgroundround"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text=""
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -62,58 +110,62 @@
 
         <Button
             android:id="@+id/btn_A"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="start"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="20dp"
             android:textSize="18dp"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/btn_text_color"
             android:text="" />
 
-        <View
-            android:layout_height="1dp"
-            android:background="@color/colorWhite"
-            android:layout_width="match_parent"/>
+
         <Button
             android:id="@+id/btn_B"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="start"
+            android:paddingLeft="20dp"
             android:textSize="18dp"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/btn_text_color"
             android:text="" />
 
-        <View
-            android:layout_height="1dp"
-            android:background="@color/colorWhite"
-            android:layout_width="match_parent"/>
         <Button
             android:id="@+id/btn_C"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:gravity="start"
+            android:paddingLeft="20dp"
             android:textSize="18dp"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/btn_text_color"
             android:text="" />
 
-        <View
-            android:layout_height="1dp"
-            android:background="@color/colorWhite"
-            android:layout_width="match_parent"/>
         <Button
             android:id="@+id/btn_D"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:gravity="start"
+            android:paddingLeft="20dp"
             android:textSize="18dp"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/btn_text_color"
             android:text="" />
     </LinearLayout>
 

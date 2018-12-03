@@ -24,10 +24,10 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 
-    TextView next_grade, grade;
+    TextView next_grade, grade, tv_spendTime, tv_spend ;
     Button btn_enter;
     Spinner spinner, spiner_subject;
-    String getResult;
+    String getResult, spendTime;
 
     @Override
     protected void onCreate(Bundle savedInstancesState) {
@@ -37,10 +37,13 @@ public class MainActivity extends Activity {
         Bundle b = getIntent().getExtras();
         if (b != null) {
             getResult = b.getString("result");
-            Log.e("TTTTTT", getResult + "");
+            spendTime = b.getString("spendTimes");
             next_grade.setVisibility(View.VISIBLE);
             grade.setVisibility(View.VISIBLE);
             grade.setText(getResult);
+            tv_spendTime.setVisibility(View.VISIBLE);
+            tv_spendTime.setText(spendTime);
+            tv_spend.setVisibility(View.VISIBLE);
         }
 
 
@@ -67,6 +70,8 @@ public class MainActivity extends Activity {
         final String[] questions = {"10", "20", "30", "40", "50"};
         final String[] subject = {"行動裝置概論"};
         next_grade = findViewById(R.id.next_grade);
+        tv_spendTime = findViewById(R.id.tv_spendTime);
+        tv_spend = findViewById(R.id.tv_times);
         grade = findViewById(R.id.grade);
         btn_enter = findViewById(R.id.btn_enter);
         spinner = (Spinner) findViewById(R.id.spinner);

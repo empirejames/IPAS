@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
     int max_number = 250;
     int[] randItem = new int[numberOfSelect];
     ArrayList<TestItem> testLists = new ArrayList<TestItem>();
-    TextView tv_selector, tv_content;
+    TextView tv_selector, tv_content , txt_getCount;
     RadioGroup radioGroup;
     RadioButton radioButton_A, radioButton_B, radioButton_C, radioButton_D;
     Button btn_next, btn_pre , btn_A, btn_B, btn_C, btn_D;
@@ -36,6 +37,9 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
     int answer = 0;
     int countCorrect = 0;
     boolean showFlag;
+    private Long startTime;
+    String spendTimes;
+    private Handler handler = new Handler();
 
 
     @Override
@@ -53,6 +57,14 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
         btn_B.setOnClickListener(this);
         btn_C.setOnClickListener(this);
         btn_D.setOnClickListener(this);
+
+
+        //Start timmer :
+        startTime = System.currentTimeMillis();
+        //設定定時要執行的方法
+        handler.removeCallbacks(updateTimer);
+        //設定Delay的時間
+        handler.postDelayed(updateTimer, 1000);
 
 
         randItem = genRandNum(max_number, numberOfSelect);
@@ -111,10 +123,10 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
 
 
     public void resetBtnBackground(){
-        btn_A.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        btn_B.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        btn_C.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        btn_D.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        btn_A.setBackgroundResource(R.drawable.rule_button_shape);
+        btn_B.setBackgroundResource(R.drawable.rule_button_shape);
+        btn_C.setBackgroundResource(R.drawable.rule_button_shape);
+        btn_D.setBackgroundResource(R.drawable.rule_button_shape);
     }
 
     public void resetBtnTextColor(){
@@ -128,20 +140,20 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
 
         resetBtnTextColor();
         resetBtnBackground();
+        txt_getCount.setText(page + " / " + numberOfSelect);
 
         if (testLists.size() != 0 && page >= 0) {
             Log.e(TAG,"testLists size" + "  :  " +testLists.size() + " Page  :" + page);
-            tv_selector.setText(page + 1 + " .");
             tv_content.setText(testLists.get(page).getTopic());
             tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
-            btn_A.setText(testLists.get(page).getA());
-            btn_B.setText(testLists.get(page).getB());
-            btn_C.setText(testLists.get(page).getC());
-            btn_D.setText(testLists.get(page).getD());
+            btn_A.setText(testLists.get(page).getItem_A());
+            btn_B.setText(testLists.get(page).getItem_B());
+            btn_C.setText(testLists.get(page).getItem_C());
+            btn_D.setText(testLists.get(page).getItem_D());
             Log.e(TAG,"Update Page" + "    " + testLists.get(page).getTopic());
             Log.e(TAG,"Update Page" + "    " + testLists.get(page).getAnswer());
-            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getA());
-            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getB());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getItem_A());
+            Log.e(TAG,"Update Page" + "    " + testLists.get(page).getItem_B());
 
 
             if (testLists.get(page).getAnswer().contains("A")) {
@@ -158,7 +170,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
     }
 
     public void initView() {
-        tv_selector = findViewById(R.id.tv_selector);
+        txt_getCount = findViewById(R.id.txt_getCount);
         tv_content = findViewById(R.id.tv_content);
         btn_next = findViewById(R.id.btnRight);
         btn_pre = findViewById(R.id.btnLeft);
@@ -173,11 +185,26 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
         Bundle b = new Bundle();
         int result = numberOfSelect - countCorrect;
         b.putString("result" , result + " / " + numberOfSelect);
+        b.putString("spendTimes" , spendTimes);
         Log.e(TAG, " Go Home Page : " + result);
         Intent i = new Intent(QuestionActivity.this, MainActivity.class);
         i.putExtras(b);
         startActivity(i);
     }
+    private Runnable updateTimer = new Runnable() {
+        public void run() {
+            final TextView time = (TextView) findViewById(R.id.timer);
+            Long spentTime = System.currentTimeMillis() - startTime;
+            //計算目前已過分鐘數
+            Long minius = (spentTime/1000)/60;
+            //計算目前已過秒數
+            Long seconds = (spentTime/1000) % 60;
+            time.setText(minius+" : "+seconds);
+            spendTimes = minius+" : "+seconds;
+            handler.postDelayed(this, 1000);
+        }
+    };
+
 
 
     public int[] genRandNum(int max_number, int numberOfSelect) {
