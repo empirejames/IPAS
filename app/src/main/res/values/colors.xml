@@ -11,10 +11,10 @@
     <color name="gray_overlay">#71A8C0</color>
     <color name="red_overlay_pressed">#CE4706</color>
     <color name="gray_overlay_pressed">#46849e</color>
-    <color name="gray_background">#B1B398</color>
+    <color name="gray_background">#55B1B398</color>
 
-    <color name = "background">#BFBFBF</color>color>
-    <color name = "button_background">#718CBD</color>color>
+    <color name = "background">#677386</color>color>
+    <color name = "button_background">#80718CBD</color>color>
     <color name = "main_button_background">#55E9F1F7</color>color>
     <color name = "btn_text_color">#EDF4EF</color>color>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".QuestionActivity"
-    android:background="@color/background"
+    android:background="@drawable/gradient_question_background"
     tools:showIn="@layout/activity_question">
 
     <LinearLayout
@@ -47,6 +47,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text=""
+                    android:textColor="@color/black"
                     android:textSize="30dp" />
 
                 <ImageView
@@ -76,11 +77,11 @@
                     android:id="@+id/tv_content"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="vertical"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginEnd="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:scrollbars="vertical"
                     android:text=""
                     android:textSize="25dp"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -96,7 +97,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="248dp"
+        android:layout_height="307dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
@@ -110,63 +111,63 @@
 
         <Button
             android:id="@+id/btn_A"
-            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="start"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rule_button_shape"
+            android:gravity="start"
             android:paddingLeft="20dp"
-            android:textSize="18dp"
+            android:text=""
             android:textColor="@color/btn_text_color"
-            android:text="" />
+            android:textSize="22dp" />
 
 
         <Button
             android:id="@+id/btn_B"
-            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rule_button_shape"
             android:gravity="start"
             android:paddingLeft="20dp"
-            android:textSize="18dp"
+            android:text=""
             android:textColor="@color/btn_text_color"
-            android:text="" />
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/btn_C"
-            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:background="@drawable/rule_button_shape"
             android:gravity="start"
             android:paddingLeft="20dp"
-            android:textSize="18dp"
+            android:text=""
             android:textColor="@color/btn_text_color"
-            android:text="" />
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/btn_D"
-            android:background="@drawable/rule_button_shape"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:background="@drawable/rule_button_shape"
             android:gravity="start"
             android:paddingLeft="20dp"
-            android:textSize="18dp"
+            android:text=""
             android:textColor="@color/btn_text_color"
-            android:text="" />
+            android:textSize="22dp" />
     </LinearLayout>
 
     <include
