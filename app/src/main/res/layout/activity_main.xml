@@ -7,42 +7,49 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <Spinner
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinner_subject"
-        android:layout_width="189dp"
-        android:layout_height="48dp"
-        android:textSize="25dp"
+        android:layout_width="190dp"
+        android:layout_height="74dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065">
-    </Spinner>
+        app:layout_constraintVertical_bias="0.065"
+        android:hint="選擇題庫"
+        android:textColorHint="#05ab9a"
+        app:met_floatingLabel="normal">
+    </com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner>
 
-    <Spinner
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinner"
-        android:layout_width="189dp"
-        android:layout_height="48dp"
-        android:textSize="25dp"
+        android:layout_width="190dp"
+        android:layout_height="74dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.252"
+        android:hint="選擇題數"
+        android:textColorHint="#05ab9a"
+        app:met_floatingLabel="normal" />
 
     <TextView
         android:id="@+id/textView2"
@@ -70,6 +77,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rule_main_button_shape"
         android:text="測驗開始"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
