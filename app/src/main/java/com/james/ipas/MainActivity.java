@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 public class MainActivity extends Activity {
 
     TextView next_grade, grade, tv_spendTime, tv_spend ;
+    ImageView img_ipas;
     Button btn_enter;
     Spinner spinner, spiner_subject;
     String getResult, spendTime;
@@ -36,6 +38,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstancesState) {
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_main);
+        getWindow().setBackgroundDrawableResource(R.drawable.ipas);
         initView();
         Bundle b = getIntent().getExtras();
         if (b != null) {
@@ -72,6 +75,8 @@ public class MainActivity extends Activity {
     public void initView() {
         final String[] questions = {"10", "20", "30", "40", "50"};
         final String[] subject = {"行動裝置概論"};
+        img_ipas = (ImageView) findViewById(R.id.img_ipas);
+
         next_grade = findViewById(R.id.next_grade);
         subjectSpinner = (MaterialBetterSpinner) findViewById(R.id.spinner_subject);
         countSpiner = (MaterialBetterSpinner) findViewById(R.id.spinner);
