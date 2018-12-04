@@ -140,7 +140,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
 
         resetBtnTextColor();
         resetBtnBackground();
-        txt_getCount.setText(page + " / " + numberOfSelect);
+        txt_getCount.setText(page+1 + " / " + numberOfSelect);
 
         if (testLists.size() != 0 && page >= 0) {
             Log.e(TAG,"testLists size" + "  :  " +testLists.size() + " Page  :" + page);
@@ -194,13 +194,25 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
     private Runnable updateTimer = new Runnable() {
         public void run() {
             final TextView time = (TextView) findViewById(R.id.timer);
+            String txt_minius, txt_seconds;
+
             Long spentTime = System.currentTimeMillis() - startTime;
             //計算目前已過分鐘數
             Long minius = (spentTime/1000)/60;
             //計算目前已過秒數
             Long seconds = (spentTime/1000) % 60;
-            time.setText(minius+" : "+seconds);
-            spendTimes = minius+" : "+seconds;
+
+            txt_minius = String.valueOf(minius);
+            txt_seconds = String.valueOf(seconds);
+
+            if(txt_minius.length()<2){
+                txt_minius = "0"+txt_minius;
+            }
+            if(txt_seconds.length()<2){
+                txt_seconds = "0"+txt_seconds;
+            }
+            time.setText(txt_minius+" : "+txt_seconds);
+            spendTimes = txt_minius+" : "+txt_seconds;
             handler.postDelayed(this, 1000);
         }
     };
@@ -228,19 +240,23 @@ public class QuestionActivity extends Activity implements View.OnClickListener{
         switch (v.getId()){
             case  R.id.btn_A :
                 getAnswer = 1;
-                btn_A.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                btn_A.setBackgroundResource(R.drawable.rule_error_button_shape);
+                resetBtnTextColor();
                 break;
             case R.id.btn_B :
                 getAnswer = 2;
-                btn_B.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                btn_B.setBackgroundResource(R.drawable.rule_error_button_shape);
+                resetBtnTextColor();
                 break;
             case   R.id.btn_C:
                 getAnswer = 3;
-                btn_C.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                btn_C.setBackgroundResource(R.drawable.rule_error_button_shape);
+                resetBtnTextColor();
                 break;
             case R.id.btn_D:
                 getAnswer = 4;
-                btn_D.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                btn_D.setBackgroundResource(R.drawable.rule_error_button_shape);
+                resetBtnTextColor();
                 break;
         }
 

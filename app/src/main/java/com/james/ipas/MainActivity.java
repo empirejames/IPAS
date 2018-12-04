@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -52,18 +53,27 @@ public class MainActivity extends Activity {
             tv_spend.setVisibility(View.VISIBLE);
         }
 
-
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String txt_question = countSpiner.getText().toString();
                 String txt_subject = subjectSpinner.getText().toString();
-                Intent i = new Intent(MainActivity.this, QuestionActivity.class);
-                Bundle b = new Bundle();
-                b.putString("subject", txt_subject);
-                b.putString("question", txt_question);
-                i.putExtras(b);
-                startActivity(i);
+                if(txt_subject.equals("") || txt_question.equals("")){
+                    //Toast.makeText(MainActivity.this, "請選擇科目題數 ", Toast.LENGTH_LONG).show();
+                    View view = findViewById(R.id.next_grade);
+                    Snackbar.make(view,
+                            "忘記選擇題庫 & 題數了喔～" ,
+                            Snackbar.LENGTH_SHORT)
+                            .show();
+                }else{
+                    Intent i = new Intent(MainActivity.this, QuestionActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("subject", txt_subject);
+                    b.putString("question", txt_question);
+                    i.putExtras(b);
+                    startActivity(i);
+                }
             }
         });
 

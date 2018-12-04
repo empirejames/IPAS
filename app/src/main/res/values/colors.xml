@@ -15,6 +15,7 @@
 
     <color name = "background">#677386</color>color>
     <color name = "button_background">#80718CBD</color>color>
+    <color name = "error_button_background">#E22F37</color>color>
     <color name = "main_button_background">#55E9F1F7</color>color>
     <color name = "btn_text_color">#EDF4EF</color>color>
 

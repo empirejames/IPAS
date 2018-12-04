@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ipas</string>
+    <string name="app_name">iPAS樣題練習</string>
     <string name="title_activity_question">QuestionActivity</string>
 </resources>
