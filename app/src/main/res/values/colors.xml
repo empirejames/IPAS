@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#2274A5</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorMiWhite">#F7F3E3</color>
     <color name="red">#FF0000</color>
     <color name = "black">#000000</color>color>
-    <color name="red_overlay">#FB5607</color>
+    <color name="red_overlay">#D16F3E</color>
     <color name="gray_overlay">#71A8C0</color>
-    <color name="red_overlay_pressed">#CE4706</color>
+    <color name="red_overlay_pressed">#924E2C</color>
     <color name="gray_overlay_pressed">#46849e</color>
     <color name="gray_background">#55B1B398</color>
 
     <color name = "background">#677386</color>color>
     <color name = "button_background">#80718CBD</color>color>
     <color name = "error_button_background">#E22F37</color>color>
-    <color name = "main_button_background">#55E9F1F7</color>color>
+    <color name = "main_button_background">#553581B8</color>color>
     <color name = "btn_text_color">#EDF4EF</color>color>
 
 </resources>
