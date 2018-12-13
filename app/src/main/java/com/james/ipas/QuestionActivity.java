@@ -53,7 +53,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener {
         subject = bundle.getString("subject");
         question = bundle.getString("question");
         numberOfSelect = Integer.parseInt(question);
-        tinyDB = new TinyDB(this);
+        tinyDB = new TinyDB(QuestionActivity.this);
         initView();
         //Log.e(TAG, "subject : " + subject);
         //Log.e(TAG, "question : " + question);
@@ -74,14 +74,11 @@ public class QuestionActivity extends Activity implements View.OnClickListener {
             max_number = 250;
             //max_number = Integer.parseInt(tinyDB.getString("mobile_intruduction"));
         }else if(subject.equals("mobile_android")){
-            max_number = 50;
+            max_number = 150;
             //max_number = Integer.parseInt(tinyDB.getString("mobile_android"));
         }else if(subject.equals("mobile_ios")){
-            max_number = 50;
+            max_number = 147;
             //max_number = Integer.parseInt(tinyDB.getString("mobile_ios"));
-        }else{
-            max_number = 10;
-            //max_number = Integer.parseInt(tinyDB.getString("default"));
         }
         Log.e(TAG,"Get Remote Data : max_number  - " + max_number);
         randItem = genRandNum(max_number, numberOfSelect);
@@ -164,6 +161,7 @@ public class QuestionActivity extends Activity implements View.OnClickListener {
 
 
             tv_content.setText(testLists.get(page).getTopic());
+            tv_content.scrollTo(0,0);
             tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
             btn_A.setText(testLists.get(page).getItem_A());
             btn_B.setText(testLists.get(page).getItem_B());

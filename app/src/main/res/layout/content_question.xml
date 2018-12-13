@@ -71,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/rule_backgroundround"
                 android:orientation="vertical">
 
@@ -82,9 +83,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
                     android:scrollbars="vertical"
                     android:text=""
-                    android:textSize="25dp"
+                    android:textSize="22dp"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -118,9 +120,10 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/rule_button_shape"
-            android:gravity="start"
+            android:gravity="start|center_vertical"
             android:paddingLeft="20dp"
             android:text=""
+            android:textAllCaps="false"
             android:textColor="@color/btn_text_color"
             android:textSize="18dp" />
 
@@ -134,9 +137,10 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:background="@drawable/rule_button_shape"
-            android:gravity="start"
+            android:gravity="start|center_vertical"
             android:paddingLeft="20dp"
             android:text=""
+            android:textAllCaps="false"
             android:textColor="@color/btn_text_color"
             android:textSize="18dp" />
 
@@ -149,9 +153,10 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:background="@drawable/rule_button_shape"
-            android:gravity="start"
+            android:gravity="start|center_vertical"
             android:paddingLeft="20dp"
             android:text=""
+            android:textAllCaps="false"
             android:textColor="@color/btn_text_color"
             android:textSize="18dp" />
 
@@ -164,9 +169,10 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:background="@drawable/rule_button_shape"
-            android:gravity="start"
+            android:gravity="start|center_vertical"
             android:paddingLeft="20dp"
             android:text=""
+            android:textAllCaps="false"
             android:textColor="@color/btn_text_color"
             android:textSize="18dp" />
     </LinearLayout>

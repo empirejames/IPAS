@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 public class MainActivity extends Activity {
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
         initView();
 
         //new GetRemoteConfig().execute();
-        tinyDB = new TinyDB(this);
+        tinyDB = new TinyDB(MainActivity.this);
         Bundle b = getIntent().getExtras();
         if (b != null) {
             getResult = b.getString("result");
@@ -118,7 +119,14 @@ public class MainActivity extends Activity {
     }
 
     public void getRemotePara() {
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+                .build();
+
         final FirebaseRemoteConfig mRemoteConfig = FirebaseRemoteConfig.getInstance();
+        mRemoteConfig.setConfigSettings(configSettings);
+        mRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+
         long cacheExpiration = 3600;
         if (mRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
             cacheExpiration = 0;

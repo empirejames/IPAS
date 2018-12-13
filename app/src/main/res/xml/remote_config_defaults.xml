@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>default</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>mobile_ios_num</key>
+        <value>50</value>
+    </entry>
+    <entry>
+        <key>mobile_android_num</key>
+        <value>50</value>
+    </entry>
+    <entry>
+        <key>mobile_introduction_num</key>
+        <value>250</value>
+    </entry>
+</defaultsMap>
